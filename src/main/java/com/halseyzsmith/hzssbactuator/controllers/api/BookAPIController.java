@@ -26,4 +26,10 @@ public class BookAPIController {
     public Book getBookById(@PathVariable Integer id) {
         return bookService.getBookById(id);
     }
+
+    @GetMapping("/{id}/similar")
+    public List<Book> getBooksWithSimilarCategories(@PathVariable Integer id) {
+        Book book = bookService.getBookById(id);
+        return bookService.getBooksByCategories(book.getCategories());
+    }
 }
