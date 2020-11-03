@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Jumbotron</title>
+
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" media="screen"
+          th:href="@{/css/bootstrap.css}"/>
+
+    <link href="../../static/css/my-styles.css"
+          th:href="@{/css/my-styles.css}" rel="stylesheet" media="screen"/>
+
+    <script src="../../static/js/jquery-2.1.4.min.js"
+            th:src="@{/js/jquery-2.1.4.min.js}"></script>
+
+</head>
+<body>
+
+    <div class="jumbotron" th:fragment="header">
+        <h1><a class="plain_anchor" href="../index">Halsey's Library</a></h1>
+    </div>
+
+</body>
+</html>

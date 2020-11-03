@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book Div</title>
+</head>
+<body>
+<div class="col-md-3" th:fragment="bookdiv">
+    <div class="book-listing">
+        <div class="row">
+            <a href="book.html" th:href="@{'/book/'+${book.getId()}}">
+                <div class="col-lg-12">
+                    <div class="book-box-image-container">
+                        <img role="presentation"
+                             src="../../static/images/books/maze_runner.jpg"
+                             th:src="@{'/images/books/'+${book.getImageUrl()}}"
+                             class="book-box-image"/>
+                    </div>
+                    <div class="book-listing-title" th:text="${book.getTitle()}">
+                        The Maze Runner
+                    </div>
+                    <div class="book-listing-author" th:text="'By ' + (${book.getAuthor().getFullName()})">
+                        By James Dashner
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

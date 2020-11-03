@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Halsey's Library</title>
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet" media="screen"
+          th:href="@{/css/bootstrap.css}"/>
+
+    <link href="../static/css/my-styles.css"
+          th:href="@{/css/my-styles.css}" rel="stylesheet" media="screen"/>
+
+    <script src="../static/js/jquery-2.1.4.min.js"
+            th:src="@{/js/jquery-2.1.4.min.js}"></script>
+
+</head>
+<body>
+    <div class="jumbotron" th:replace="fragments/header :: header">
+        <h1><a class="plain_anchor" href="#">Halsey's Library</a></h1>
+    </div>
+
+
+    <div class="container p-b-2">
+        <div class="row book-list list">
+            <div class='row book-list list'>
+                <div th:each="book,it : ${books}">
+                    <div th:if="${(it.count gt 0 and it.count lt 12)}">
+                        <div th:replace="fragments/bookdiv :: bookdiv">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row book-list list" th:remove="all">
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row book-list list" th:remove="all">
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="book-listing">
+                    <div class="row">
+                        <a href="book.html" th:href="@{/book/1}">
+                            <div class="col-lg-12">
+                                <div class="book-box-image-container">
+                                    <img role="presentation"
+                                         src="../static/images/books/maze_runner.jpg"
+                                         th:src="@{images/books/maze_runner.jpg}"
+                                         class="book-box-image"/>
+                                </div>
+                                <div class="book-listing-title">
+                                    The Maze Runner
+                                </div>
+                                <div class="book-listing-author">
+                                    By James Dashner
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" th:replace="fragments/footer :: footer">
+        <h4>© 2020 - Halsey Z Smith</h4>
+    </footer>
+
+</body>
+</html>
