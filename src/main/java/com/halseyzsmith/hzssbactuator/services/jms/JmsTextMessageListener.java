@@ -1,13 +1,22 @@
 package com.halseyzsmith.hzssbactuator.services.jms;
 
-import org.springframework.jms.annotation.JmsListener;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Component
-public class JmsTextMessageListener {
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
 
-    @JmsListener(destination = "text.messagequeue")
-    public void onMessage(String msg){
-        System.out.println("#### " + msg + " ###" );
+@Slf4j
+@Component
+public class JmsTextMessageListener implements MessageListener {
+
+    @Override
+    public void onMessage(Message message) {
+        try {
+            log.info("### " + message.getBody(String.class) + " ###" );
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
     }
 }
