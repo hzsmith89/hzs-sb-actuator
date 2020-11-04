@@ -24,155 +24,157 @@ public class DataBootstrap implements ApplicationListener<ContextRefreshedEvent>
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-        // Building Categories
-        Category unsavedSciFiCategory = Category.builder().categoryName("Science Fiction").build();
-        Category unsavedDystopiaCategory = Category.builder().categoryName("Dystopia").build();
-        Category unsavedFictionCategory = Category.builder().categoryName("Fiction").build();
-        Category unsavedClassicCategory = Category.builder().categoryName("Classic").build();
+        if (categoryRepository.count() == 0) {
 
-        // Saving Categories
-        log.info("Saving Science Fiction Category...");
-        Category sciFiCategory = categoryRepository.save(unsavedSciFiCategory);
+            // Building Categories
+            Category unsavedSciFiCategory = Category.builder().categoryName("Science Fiction").build();
+            Category unsavedDystopiaCategory = Category.builder().categoryName("Dystopia").build();
+            Category unsavedFictionCategory = Category.builder().categoryName("Fiction").build();
+            Category unsavedClassicCategory = Category.builder().categoryName("Classic").build();
 
-        log.info("Saving Dystopia Category...");
-        Category dystopiaCategory = categoryRepository.save(unsavedDystopiaCategory);
+            // Saving Categories
+            log.info("Saving Science Fiction Category...");
+            Category sciFiCategory = categoryRepository.save(unsavedSciFiCategory);
 
-        log.info("Saving Fiction Category...");
-        Category fictionCategory = categoryRepository.save(unsavedFictionCategory);
+            log.info("Saving Dystopia Category...");
+            Category dystopiaCategory = categoryRepository.save(unsavedDystopiaCategory);
 
-        log.info("Saving Classic Category...");
-        Category classicCategory = categoryRepository.save(unsavedClassicCategory);
+            log.info("Saving Fiction Category...");
+            Category fictionCategory = categoryRepository.save(unsavedFictionCategory);
 
-        // Building Authors
-        Author unsavedJohnTwelveHawks = Author.builder()
-                .firstName("John").middleName("Twelve").lastName("Hawks")
-                .biography(Paragraphs.JTH_BIO)
-                .imageUrl("john_twelve_hawks.jpg")
-                .build();
+            log.info("Saving Classic Category...");
+            Category classicCategory = categoryRepository.save(unsavedClassicCategory);
 
-        Author unsavedAynRand = Author.builder()
-                .firstName("Ayn").middleName("").lastName("Rand")
-                .biography(Paragraphs.RAND_BIO)
-                .imageUrl("ayn_rand.jpg")
-                .build();
+            // Building Authors
+            Author unsavedJohnTwelveHawks = Author.builder()
+                    .firstName("John").middleName("Twelve").lastName("Hawks")
+                    .biography(Paragraphs.JTH_BIO)
+                    .imageUrl("john_twelve_hawks.jpg")
+                    .build();
 
-        // Saving Authors
-        log.info("Saving Author: 'John Twelve Hawks'...");
-        Author johnTwelveHawks = authorRepository.save(unsavedJohnTwelveHawks);
+            Author unsavedAynRand = Author.builder()
+                    .firstName("Ayn").middleName("").lastName("Rand")
+                    .biography(Paragraphs.RAND_BIO)
+                    .imageUrl("ayn_rand.jpg")
+                    .build();
 
-        log.info("Saving Author: 'Ayn Rand'...");
-        Author aynRand = authorRepository.save(unsavedAynRand);
+            // Saving Authors
+            log.info("Saving Author: 'John Twelve Hawks'...");
+            Author johnTwelveHawks = authorRepository.save(unsavedJohnTwelveHawks);
 
-        // Building John Twelve Hawk Books
-        Book travelerBook = Book.builder()
-                .title("The Traveler")
-                .asin("1400079292")
-                .author(johnTwelveHawks)
-                .series("Fourth Realm Trilogy")
-                .imageUrl("traveler.jpg")
-                .summary(Paragraphs.TRAVELER_SUMMARY)
-                .category(sciFiCategory)
-                .category(dystopiaCategory)
-                .build();
+            log.info("Saving Author: 'Ayn Rand'...");
+            Author aynRand = authorRepository.save(unsavedAynRand);
 
-        Book darkRiverBook = Book.builder()
-                .title("The Dark River")
-                .asin("1400079306")
-                .author(johnTwelveHawks)
-                .series("Fourth Realm Trilogy")
-                .imageUrl("dark_river.jpg")
-                .summary(Paragraphs.DARK_RIVER_SUMMARY)
-                .category(sciFiCategory)
-                .category(dystopiaCategory)
-                .build();
+            // Building John Twelve Hawk Books
+            Book travelerBook = Book.builder()
+                    .title("The Traveler")
+                    .asin("1400079292")
+                    .author(johnTwelveHawks)
+                    .series("Fourth Realm Trilogy")
+                    .imageUrl("traveler.jpg")
+                    .summary(Paragraphs.TRAVELER_SUMMARY)
+                    .category(sciFiCategory)
+                    .category(dystopiaCategory)
+                    .build();
 
-        Book goldenCityBook = Book.builder()
-                .title("The Golden City")
-                .asin("1400079314")
-                .author(johnTwelveHawks)
-                .series("Fourth Realm Trilogy")
-                .imageUrl("golden_city.jpg")
-                .summary(Paragraphs.GOLDEN_CITY_SUMMARY)
-                .category(sciFiCategory)
-                .category(dystopiaCategory)
-                .build();
+            Book darkRiverBook = Book.builder()
+                    .title("The Dark River")
+                    .asin("1400079306")
+                    .author(johnTwelveHawks)
+                    .series("Fourth Realm Trilogy")
+                    .imageUrl("dark_river.jpg")
+                    .summary(Paragraphs.DARK_RIVER_SUMMARY)
+                    .category(sciFiCategory)
+                    .category(dystopiaCategory)
+                    .build();
 
-        Book sparkBook = Book.builder()
-                .title("Spark: A Novel")
-                .asin("B00JNQKR3C")
-                .author(johnTwelveHawks)
-                .imageUrl("spark.jpg")
-                .summary(Paragraphs.SPARK_SUMMARY)
-                .category(sciFiCategory)
-                .category(dystopiaCategory)
-                .build();
+            Book goldenCityBook = Book.builder()
+                    .title("The Golden City")
+                    .asin("1400079314")
+                    .author(johnTwelveHawks)
+                    .series("Fourth Realm Trilogy")
+                    .imageUrl("golden_city.jpg")
+                    .summary(Paragraphs.GOLDEN_CITY_SUMMARY)
+                    .category(sciFiCategory)
+                    .category(dystopiaCategory)
+                    .build();
 
-        // Building Ayn Rand Books
-        Book anthemBook = Book.builder()
-                .title("Anthem")
-                .asin("B002OSXD7S")
-                .author(aynRand)
-                .imageUrl("anthem.jpg")
-                .summary(Paragraphs.ANTHEM_SUMMARY)
-                .category(classicCategory)
-                .category(fictionCategory)
-                .build();
+            Book sparkBook = Book.builder()
+                    .title("Spark: A Novel")
+                    .asin("B00JNQKR3C")
+                    .author(johnTwelveHawks)
+                    .imageUrl("spark.jpg")
+                    .summary(Paragraphs.SPARK_SUMMARY)
+                    .category(sciFiCategory)
+                    .category(dystopiaCategory)
+                    .build();
 
-        Book fountainheadBook = Book.builder()
-                .title("The Fountainhead")
-                .asin("B08GC58R1Y")
-                .author(aynRand)
-                .imageUrl("fountainhead.jpg")
-                .summary(Paragraphs.FOUNTAINHEAD_SUMMARY)
-                .category(classicCategory)
-                .category(fictionCategory)
-                .build();
+            // Building Ayn Rand Books
+            Book anthemBook = Book.builder()
+                    .title("Anthem")
+                    .asin("B002OSXD7S")
+                    .author(aynRand)
+                    .imageUrl("anthem.jpg")
+                    .summary(Paragraphs.ANTHEM_SUMMARY)
+                    .category(classicCategory)
+                    .category(fictionCategory)
+                    .build();
 
-        Book atlasShruggedBook = Book.builder()
-                .title("Atlas Shrugged")
-                .asin("B003V8B5XO")
-                .author(aynRand)
-                .imageUrl("atlas_shrugged.jpg")
-                .summary(Paragraphs.ATLAS_SHRUGGED_SUMMARY)
-                .category(classicCategory)
-                .category(fictionCategory)
-                .build();
+            Book fountainheadBook = Book.builder()
+                    .title("The Fountainhead")
+                    .asin("B08GC58R1Y")
+                    .author(aynRand)
+                    .imageUrl("fountainhead.jpg")
+                    .summary(Paragraphs.FOUNTAINHEAD_SUMMARY)
+                    .category(classicCategory)
+                    .category(fictionCategory)
+                    .build();
 
-        Book weTheLivingBook = Book.builder()
-                .title("We The Living")
-                .asin("B002PA0LWA")
-                .author(aynRand)
-                .imageUrl("we_the_living.jpg")
-                .summary(Paragraphs.WE_THE_LIVING_SUMMARY)
-                .category(classicCategory)
-                .category(fictionCategory)
-                .build();
+            Book atlasShruggedBook = Book.builder()
+                    .title("Atlas Shrugged")
+                    .asin("B003V8B5XO")
+                    .author(aynRand)
+                    .imageUrl("atlas_shrugged.jpg")
+                    .summary(Paragraphs.ATLAS_SHRUGGED_SUMMARY)
+                    .category(classicCategory)
+                    .category(fictionCategory)
+                    .build();
 
-        // Saving John Twelve Hawks Books
-        log.info("Saving Book: 'The Traveler'...");
-        bookRepository.save(travelerBook);
+            Book weTheLivingBook = Book.builder()
+                    .title("We The Living")
+                    .asin("B002PA0LWA")
+                    .author(aynRand)
+                    .imageUrl("we_the_living.jpg")
+                    .summary(Paragraphs.WE_THE_LIVING_SUMMARY)
+                    .category(classicCategory)
+                    .category(fictionCategory)
+                    .build();
 
-        log.info("Saving Book: 'The Dark River'...");
-        bookRepository.save(darkRiverBook);
+            // Saving John Twelve Hawks Books
+            log.info("Saving Book: 'The Traveler'...");
+            bookRepository.save(travelerBook);
 
-        log.info("Saving Book: 'The Golden City'...");
-        bookRepository.save(goldenCityBook);
+            log.info("Saving Book: 'The Dark River'...");
+            bookRepository.save(darkRiverBook);
 
-        log.info("Saving Book: 'Spark: A Novel'...");
-        bookRepository.save(sparkBook);
+            log.info("Saving Book: 'The Golden City'...");
+            bookRepository.save(goldenCityBook);
 
-        // Saving Ayn Rand Books
-        log.info("Saving Book: 'Anthem'...");
-        bookRepository.save(anthemBook);
+            log.info("Saving Book: 'Spark: A Novel'...");
+            bookRepository.save(sparkBook);
 
-        log.info("Saving Book: 'The Fountainhead'...");
-        bookRepository.save(fountainheadBook);
+            // Saving Ayn Rand Books
+            log.info("Saving Book: 'Anthem'...");
+            bookRepository.save(anthemBook);
 
-        log.info("Saving Book: 'Atlas Shrugged'...");
-        bookRepository.save(atlasShruggedBook);
+            log.info("Saving Book: 'The Fountainhead'...");
+            bookRepository.save(fountainheadBook);
 
-        log.info("Saving Book: 'We The Living'...");
-        bookRepository.save(weTheLivingBook);
+            log.info("Saving Book: 'Atlas Shrugged'...");
+            bookRepository.save(atlasShruggedBook);
 
+            log.info("Saving Book: 'We The Living'...");
+            bookRepository.save(weTheLivingBook);
+        }
     }
 }
