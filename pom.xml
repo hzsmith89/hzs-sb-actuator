@@ -52,6 +52,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<dependency>
+			<groupId>pl.project13.maven</groupId>
+			<artifactId>git-commit-id-plugin</artifactId>
+			<version>4.0.3</version>
+			<type>maven-plugin</type>
+		</dependency>
+
 		<!--JMS Dep-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -95,6 +102,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>4.0.3</version>
 			</plugin>
 		</plugins>
 	</build>
