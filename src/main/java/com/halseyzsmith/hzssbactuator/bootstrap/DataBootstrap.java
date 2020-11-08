@@ -33,16 +33,16 @@ public class DataBootstrap implements ApplicationListener<ContextRefreshedEvent>
             Category unsavedClassicCategory = Category.builder().categoryName("Classic").build();
 
             // Saving Categories
-            log.info("Saving Science Fiction Category...");
+            log.debug("Saving Science Fiction Category...");
             Category sciFiCategory = categoryRepository.save(unsavedSciFiCategory);
 
-            log.info("Saving Dystopia Category...");
+            log.debug("Saving Dystopia Category...");
             Category dystopiaCategory = categoryRepository.save(unsavedDystopiaCategory);
 
-            log.info("Saving Fiction Category...");
+            log.debug("Saving Fiction Category...");
             Category fictionCategory = categoryRepository.save(unsavedFictionCategory);
 
-            log.info("Saving Classic Category...");
+            log.debug("Saving Classic Category...");
             Category classicCategory = categoryRepository.save(unsavedClassicCategory);
 
             // Building Authors
@@ -59,10 +59,10 @@ public class DataBootstrap implements ApplicationListener<ContextRefreshedEvent>
                     .build();
 
             // Saving Authors
-            log.info("Saving Author: 'John Twelve Hawks'...");
+            log.debug("Saving Author: 'John Twelve Hawks'...");
             Author johnTwelveHawks = authorRepository.save(unsavedJohnTwelveHawks);
 
-            log.info("Saving Author: 'Ayn Rand'...");
+            log.debug("Saving Author: 'Ayn Rand'...");
             Author aynRand = authorRepository.save(unsavedAynRand);
 
             // Building John Twelve Hawk Books
@@ -151,30 +151,32 @@ public class DataBootstrap implements ApplicationListener<ContextRefreshedEvent>
                     .build();
 
             // Saving John Twelve Hawks Books
-            log.info("Saving Book: 'The Traveler'...");
+            log.debug("Saving Book: 'The Traveler'...");
             bookRepository.save(travelerBook);
 
-            log.info("Saving Book: 'The Dark River'...");
+            log.debug("Saving Book: 'The Dark River'...");
             bookRepository.save(darkRiverBook);
 
-            log.info("Saving Book: 'The Golden City'...");
+            log.debug("Saving Book: 'The Golden City'...");
             bookRepository.save(goldenCityBook);
 
-            log.info("Saving Book: 'Spark: A Novel'...");
+            log.debug("Saving Book: 'Spark: A Novel'...");
             bookRepository.save(sparkBook);
 
             // Saving Ayn Rand Books
-            log.info("Saving Book: 'Anthem'...");
+            log.debug("Saving Book: 'Anthem'...");
             bookRepository.save(anthemBook);
 
-            log.info("Saving Book: 'The Fountainhead'...");
+            log.debug("Saving Book: 'The Fountainhead'...");
             bookRepository.save(fountainheadBook);
 
-            log.info("Saving Book: 'Atlas Shrugged'...");
+            log.debug("Saving Book: 'Atlas Shrugged'...");
             bookRepository.save(atlasShruggedBook);
 
-            log.info("Saving Book: 'We The Living'...");
+            log.debug("Saving Book: 'We The Living'...");
             bookRepository.save(weTheLivingBook);
+
+            log.info("****** Book data loaded!! ******");
         }
     }
 }
